@@ -1,0 +1,1 @@
+"""MasterVoltXS integration."""
