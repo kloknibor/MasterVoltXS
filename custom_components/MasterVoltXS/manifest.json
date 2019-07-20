@@ -1,7 +1,7 @@
 {
-  "domain": "HA-MastervoltXS",
-  "name": "HA-MastervoltXS",
-  "documentation": "https://www.home-assistant.io/components/HA-MastervoltXS",
+  "domain": "MastervoltXS",
+  "name": "MastervoltXS",
+  "documentation": "https://www.home-assistant.io/components/MastervoltXS",
   "requirements": [
     "XSsolar==0.8"
   ],
