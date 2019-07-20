@@ -21,6 +21,8 @@ from homeassistant.core import CoreState
 
 _LOGGER = logging.getLogger(__name__)
 
+REQUIREMENTS = ['XSsolar==0.8']
+
 CONF_TCP_IP = 'TCP_IP'
 CONF_TCP_PORT = 'TCP_PORT'
 CONF_RECONNECT_INTERVAL = 'RECONNECT_INTERVAL'
@@ -68,7 +70,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     ],
     [
       'Wtot_Solar',
-      'Wh'
+      'kWh'
     ],
     [
       'Temp_Solar',
@@ -200,8 +202,19 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                       data['temp'] = i.values['temp']
                       data['totalruntime'] = i.values['totalruntime']
                       data['dcp'] = i.values['dcv'] * i.values['dci']
-                  except:
+                  except Exception as e:
                     _LOGGER.error("Data transfer incomplete, maybe inverter shutdown during data transfer" )
+                    _LOGGER.error("exception : %s", e)
+                    data['dcv'] = 0
+                    data['dci'] = 0
+                    data['freq'] = 0
+                    data['acv'] = 0
+                    data['aci'] = 0
+                    data['acp'] = 0
+                    data['totalpower'] = 0
+                    data['temp'] = 0
+                    data['totalruntime'] = 0
+                    data['dcp'] = 0
 
           s.close()
           update_entities(data)
@@ -240,4 +253,5 @@ class SunMasterXSSensor(Entity):
     def icon(self):
         """Return the icon to use in the frontend, if any."""
         return ICON
+
 
