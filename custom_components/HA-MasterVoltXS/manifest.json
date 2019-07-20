@@ -6,5 +6,5 @@
     "XSsolar==0.8"
   ],
   "dependencies": [],
-  "codeowners": [kloknibor, Jorg Janssen]
+  "codeowners": ["kloknibor" , "Jorg Janssen"]
 }
