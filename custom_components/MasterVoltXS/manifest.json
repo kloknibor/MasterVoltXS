@@ -2,9 +2,12 @@
   "domain": "MasterVoltXS",
   "name": "MasterVoltXS",
   "documentation": "https://www.home-assistant.io/components/MastervoltXS",
+  "issue_tracker": "https://www.home-assistant.io/components/MastervoltXS/issues",
+  "version": "v2021.8.07",
+  "iot_class": "local_polling",
   "requirements": [
     "XSsolar==0.8"
   ],
   "dependencies": [],
-  "codeowners": ["kloknibor" , "Jorg Janssen"]
+  "codeowners": ["@kloknibor"]
 }

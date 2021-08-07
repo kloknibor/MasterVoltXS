@@ -1,0 +1,4 @@
+{
+  "name": "MastervoltXS serial to hass",
+  "iot_class": ["Local Polling"]
+}
