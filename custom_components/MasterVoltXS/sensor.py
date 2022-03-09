@@ -15,7 +15,7 @@ import logging
 import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
-from homeassistant.components.sensor import PLATFORM_SCHEMA, STATE_CLASS_MEASUREMENT, SensorEntity
+from homeassistant.components.sensor import PLATFORM_SCHEMA, STATE_CLASS_MEASUREMENT, SensorEntity, STATE_CLASS_TOTAL_INCREASING
 from homeassistant.helpers.entity import Entity
 from homeassistant.core import CoreState
 
@@ -295,4 +295,4 @@ class SunMasterXSSensorEnergy(SensorEntity):
     @property
     def state_class(self):
         """used by Metered entities / Long Term Statistics"""
-        return STATE_CLASS_MEASUREMENT
+        return STATE_CLASS_TOTAL_INCREASING
