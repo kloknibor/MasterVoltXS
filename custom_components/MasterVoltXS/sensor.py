@@ -115,7 +115,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                 device._state = data['aci']
             elif(device._name == 'PAc_Solar'):
                 device._state = data['acp']
-            elif(device._name == 'Wtot_Solar') and (data['totalpower'] > 0):
+            elif(device._name == 'Wtot_Solar') and (data['totalpower'] > 0) and (device._state < data['totalpower']):
                 device._state = data['totalpower']
             elif(device._name == 'Temp_Solar'):
                 device._state = data['temp']
