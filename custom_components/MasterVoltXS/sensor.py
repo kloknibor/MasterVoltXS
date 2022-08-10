@@ -231,7 +231,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
 
                 # throttle reconnect attempts
-                await asyncio.sleep(reconnectInterval,loop=hass.loop)
+                await asyncio.sleep(reconnectInterval)
 
     hass.loop.create_task(update())
 
