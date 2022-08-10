@@ -143,7 +143,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
                 s.connect((TCP_IP, TCP_PORT)) # connect to tcp-converter
             except:
                 _LOGGER.error("Unable to connect to tcp converter" )
-                await asyncio.sleep(reconnectInterval,loop=hass.loop)
+                await asyncio.sleep(reconnectInterval)
                 # quit & throttle reconnect attempts
             else:
                 # "flush":
