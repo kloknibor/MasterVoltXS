@@ -1,4 +1,7 @@
-This home assistant sensor is to read info from the XS Mastervolt invertors from a serial to ethernet/wifi converter and is only tested with the XS2000.
+This home assistant sensor is to read info from the XS Mastervolt invertors from a serial to ethernet/wifi converter and is only tested with:
+- XS2000
+- XS3200
+
 To install this sensor add the MasterVolt.py file to the  this add the following to your configuration.yaml :
 
 ## Installation of the custom component
