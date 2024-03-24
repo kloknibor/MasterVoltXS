@@ -293,11 +293,6 @@ class SunMasterXSSensorEnergy(SensorEntity):
         return self._state
 
     @property
-    def last_reset(self):
-        """Last reset property, used by Metered entities / Long Term Statistics"""
-        return utc_from_timestamp(0)
-
-    @property
     def state_class(self):
         """used by Metered entities / Long Term Statistics"""
         return STATE_CLASS_TOTAL_INCREASING
