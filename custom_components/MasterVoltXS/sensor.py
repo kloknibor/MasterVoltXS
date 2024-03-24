@@ -272,7 +272,7 @@ class SunMasterXSSensorEnergy(SensorEntity):
         """Initialize the sensor."""
         self._name = name
         self._state = None
-        _LOGGER.error("Creating energy thingyZ")
+        _LOGGER.info("MastervoltXS integration initialized")
 
     @property
     def device_class(self):
