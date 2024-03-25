@@ -15,15 +15,10 @@ import logging
 import voluptuous as vol
 
 import homeassistant.helpers.config_validation as cv
-from homeassistant.components.sensor import PLATFORM_SCHEMA, STATE_CLASS_MEASUREMENT, SensorEntity, STATE_CLASS_TOTAL_INCREASING
+from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorStateClass, SensorEntity, SensorDeviceClass
 from homeassistant.helpers.entity import Entity
 from homeassistant.core import CoreState
-
-from homeassistant.const import (
-    DEVICE_CLASS_ENERGY,
-    ENERGY_KILO_WATT_HOUR,
-)
-
+from homeassistant.const import UnitOfEnergy
 from homeassistant.util.dt import utc_from_timestamp
 
 _LOGGER = logging.getLogger(__name__)
@@ -127,7 +122,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
             elif(device._name == 'Runtime_Solar') and (data['totalruntime'] > 0):
                 device._state = data['totalruntime']
 
-        hass.async_create_task(device.async_update_ha_state())
+        hass.async_create_task(device.async_update_ha_state(force_refresh=True))
 
     async def update():
         """Get the latest data and updates the state."""
@@ -276,11 +271,11 @@ class SunMasterXSSensorEnergy(SensorEntity):
 
     @property
     def device_class(self):
-        return DEVICE_CLASS_ENERGY
+        return SensorDeviceClass.ENERGY
 
     @property
     def unit_of_measurement(self):
-        return ENERGY_KILO_WATT_HOUR
+        return UnitOfEnergy.KILO_WATT_HOUR
 
     @property
     def name(self):
@@ -295,4 +290,4 @@ class SunMasterXSSensorEnergy(SensorEntity):
     @property
     def state_class(self):
         """used by Metered entities / Long Term Statistics"""
-        return STATE_CLASS_TOTAL_INCREASING
+        return SensorStateClass.TOTAL_INCREASING
